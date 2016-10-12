@@ -118,10 +118,16 @@ var styles = StyleSheet.create({
 
 
 ## Android Expansion File Usage
-## Android 扩展文件使用
+## Android 扩展文件使用 
+android apk 扩展文件介绍 http://blog.csdn.net/myarrow/article/details/7760579
+每个APK可以有2个扩展文件，每个文件最大限制是2GB。为了减少用户的带宽消耗，最好使用压缩格式文件吧。 这两扩展文件具有不同的用途：
+第一个被称为 main (主)扩展文件，该扩展文件保护您程序中需要用到的附加数据；
+第二个被称为 patch 扩展(修补)文件，该文件是可选的，并且应该只包含一些不同版本的补丁数据。
 ```javascript
 // Within your render function, assuming you have a file called
 // "background.mp4" in your expansion file. Just add your main and (if applicable) patch version
+//当你要播放一个在扩展文件中的“background.mp4”视频文件时，可以用 source={{uri: "background", mainVer: 1, patchVer: 0}
+//在扩展文件中 查找 background.mp4 播放，主版本为1 补丁版本为0
 <Video source={{uri: "background", mainVer: 1, patchVer: 0}} // Looks for .mp4 file (background.mp4) in the given expansion version.
        rate={1.0}                   // 0 is paused, 1 is normal.
        volume={1.0}                 // 0 is muted, 1 is normal.
@@ -149,9 +155,9 @@ var styles = Stylesheet.create({
 ```
 
 ### Load files with the RN Asset System
-
+### 使用  RN Asset System 装载视频文件
 The asset system [introduced in RN `0.14`](http://www.reactnative.com/react-native-v0-14-0-released/) allows loading image resources shared across iOS and Android without touching native code. As of RN `0.31` [the same is true](https://github.com/facebook/react-native/commit/91ff6868a554c4930fd5fda6ba8044dbd56c8374) of mp4 video assets for Android. As of [RN `0.33`](https://github.com/facebook/react-native/releases/tag/v0.33.0) iOS is also supported. Requires `react-native-video@0.9.0`.
-
+RN 0.33 版本以后 支持 装载 mp4 视频资源文件
 ```
 <Video
   repeat

@@ -81,27 +81,27 @@ Under `.addPackage(new MainReactPackage())`:
 ```
 
 ## Usage
-
+使用方法
 ```javascript
 // Within your render function, assuming you have a file called
 // "background.mp4" in your project. You can include multiple videos
 // on a single screen if you like.
 
 <Video source={{uri: "background"}}   // Can be a URL or a local file. 视频源 可以是url或本地文件
-       rate={1.0}                     // 0 is paused, 1 is normal.
-       volume={1.0}                   // 0 is muted, 1 is normal.
-       muted={false}                  // Mutes the audio entirely.
-       paused={false}                 // Pauses playback entirely.
-       resizeMode="cover"             // Fill the whole screen at aspect ratio.
-       repeat={true}                  // Repeat forever.
-       playInBackground={false}       // Audio continues to play when app entering background.
+       rate={1.0}                     // 0 is paused, 1 is normal. 播放速度 0 暂停 正常
+       volume={1.0}                   // 0 is muted, 1 is normal.  音量  0 静音 1 正常
+       muted={false}                  // Mutes the audio entirely.  完全静音
+       paused={false}                 // Pauses playback entirely.  全部暂停播放
+       resizeMode="cover"             // Fill the whole screen at aspect ratio.  按纵横比填充整个屏幕
+       repeat={true}                  // Repeat forever. 循环播放
+       playInBackground={false}       // Audio continues to play when app entering background. 当应用程序进入背景音频继续播放。
        playWhenInactive={false}       // [iOS] Video continues to play when control or notification center are shown.
        progressUpdateInterval={250.0} // [iOS] Interval to fire onProgress (default to ~250ms)
-       onLoadStart={this.loadStart}   // Callback when video starts to load
-       onLoad={this.setDuration}      // Callback when video loads
-       onProgress={this.setTime}      // Callback every ~250ms with currentTime
-       onEnd={this.onEnd}             // Callback when playback finishes
-       onError={this.videoError}      // Callback when video cannot be loaded
+       onLoadStart={this.loadStart}   // Callback when video starts to load 视频装载开始回调函数
+       onLoad={this.setDuration}      // Callback when video loads 视频装载回调
+       onProgress={this.setTime}      // Callback every ~250ms with currentTime 每250ms 回调一次 
+       onEnd={this.onEnd}             // Callback when playback finishes 播放完毕回调
+       onError={this.videoError}      // Callback when video cannot be loaded 视频不能装载回调
        style={styles.backgroundVideo} />
 
 // Later on in your styles..
@@ -118,7 +118,7 @@ var styles = StyleSheet.create({
 
 
 ## Android Expansion File Usage
-
+## Android 扩展文件使用
 ```javascript
 // Within your render function, assuming you have a file called
 // "background.mp4" in your expansion file. Just add your main and (if applicable) patch version
